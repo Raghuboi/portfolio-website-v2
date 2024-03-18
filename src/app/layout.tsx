@@ -1,3 +1,6 @@
+import "@/app/globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+
 export const metadata = {
   title: "Raghunath Prabhakar",
   description: "Raghunath Prabhakar - Portfolio Website",
@@ -10,7 +13,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          // enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
