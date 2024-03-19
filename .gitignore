@@ -21,7 +21,6 @@
 *.pem
 nginx
 *.ppk
-docker-compose.prod.yaml
 
 # debug
 npm-debug.log*

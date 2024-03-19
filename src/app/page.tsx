@@ -1,7 +1,7 @@
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { SparklesCore } from "@/components/ui/sparkles";
 
-export default function Page() {
+export default async function Page() {
   return (
     <div className="h-[40rem] w-full bg-background flex flex-col items-center justify-center overflow-hidden rounded-md">
       <h1 className="md:text-7xl text-3xl lg:text-7xl font-bold text-center text-white relative z-20">
