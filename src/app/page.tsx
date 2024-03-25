@@ -1,6 +1,10 @@
 "use client";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
-import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import {
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+  DownloadIcon,
+} from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -28,7 +32,7 @@ export default function Page() {
           damping: 20,
           duration: 0.3,
         }}
-        className="flex gap-4"
+        className="flex flex-wrap items-center justify-center gap-4"
       >
         <Link
           href="https://github.com/Raghuboi"
@@ -57,6 +61,21 @@ export default function Page() {
             </div>
           </button>
         </Link>
+
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          download="Raghunath_Prabhakar_resume"
+          href={process.env.NEXT_PUBLIC_RESUME_URL}
+        >
+          <button className="p-[3px] relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+            <div className="flex items-center gap-2 px-8 py-2 bg-secondary rounded-[6px] relative group transition duration-200 text-secondary-foreground hover:bg-transparent">
+              Resume
+              <DownloadIcon className="text-secondary-foreground" />
+            </div>
+          </button>
+        </a>
       </motion.div>
     </div>
   );
