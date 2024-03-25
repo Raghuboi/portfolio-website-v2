@@ -10,7 +10,7 @@ interface IBackground {
 const Background: React.FC<IBackground> = ({ children }) => {
   const { theme } = useTheme();
   return (
-    <div className="w-screen h-screen bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2]">
+    <div className="relative w-screen h-screen bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2]">
       <SparklesCore
         background="transparent"
         minSize={0.6}
