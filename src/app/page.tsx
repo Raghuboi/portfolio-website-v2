@@ -24,7 +24,7 @@ export default async function Page() {
   ];
 
   return (
-    <div className="h-[40rem] w-full bg-background flex flex-col items-center justify-center overflow-hidden rounded-md">
+    <div className="h-[40rem] w-full flex flex-col items-center justify-center overflow-hidden">
       <TypewriterEffectSmooth
         words={[
           {
