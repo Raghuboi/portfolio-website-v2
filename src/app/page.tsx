@@ -1,31 +1,13 @@
-import { AuroraBackground } from "@/components/ui/aurora-background";
-import { SparklesCore } from "@/components/ui/sparkles";
-import { Spotlight } from "@/components/ui/spotlight";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+"use client";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
-export default async function Page() {
-  const words = [
-    {
-      text: "Build",
-    },
-    {
-      text: "awesome",
-    },
-    {
-      text: "apps",
-    },
-    {
-      text: "with",
-    },
-    {
-      text: "Aceternity.",
-      className: "text-blue-500 dark:text-blue-500",
-    },
-  ];
-
+export default function Page() {
   return (
-    <div className="h-[40rem] w-full bg-background flex flex-col items-center justify-center overflow-hidden rounded-md">
-      <TypewriterEffectSmooth
+    <div className="h-[40rem] w-full flex flex-col items-center justify-center overflow-hidden gap-10">
+      <TypewriterEffect
         words={[
           {
             text: "Raghunath",
@@ -34,28 +16,48 @@ export default async function Page() {
             text: "Prabhakar",
           },
         ]}
-        cursorClassName="bg-sky-500 dark:bg-indigo-500"
+        className="flex items-end text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-bold text-center"
+        cursorClassName="bg-muted h-full"
       />
-      <div className="w-[35rem] h-40 relative">
-        {/* Gradients */}
-        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+      <motion.div
+        initial={{ y: "+100dvh", opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+          duration: 0.3,
+        }}
+        className="flex gap-4"
+      >
+        <Link
+          href="https://github.com/Raghuboi"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <button className="p-[3px] relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+            <div className="flex items-center gap-2 px-8 py-2 bg-secondary rounded-[6px] relative group transition duration-200 text-secondary-foreground hover:bg-transparent">
+              Github
+              <GitHubLogoIcon className="text-secondary-foreground" />
+            </div>
+          </button>
+        </Link>
 
-        {/* Core component */}
-        <SparklesCore
-          background="transparent"
-          minSize={0.4}
-          maxSize={1}
-          particleDensity={1200}
-          className="w-full h-full"
-          particleColor="#FFFFFF"
-        />
-
-        {/* Radial Gradient to prevent sharp edges */}
-        <div className="absolute inset-0 w-full h-full bg-background [mask-image:radial-gradient(350px_200px_at_top,transparent_0%,white)]"></div>
-      </div>
+        <Link
+          href="https://www.linkedin.com/in/raghunath-prabhakar/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <button className="p-[3px] relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-[#0077B5] rounded-lg" />
+            <div className="flex items-center gap-2 px-8 py-2 bg-secondary rounded-[6px] relative group transition duration-200 text-secondary-foreground hover:bg-transparent">
+              LinkedIn
+              <LinkedInLogoIcon className="text-secondary-foreground" />
+            </div>
+          </button>
+        </Link>
+      </motion.div>
     </div>
   );
 }

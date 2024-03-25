@@ -1,5 +1,7 @@
+import Navbar from "@/layouts/navbar";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/hooks/theme-provider";
+import Background from "@/layouts/background";
 
 export const metadata = {
   title: "Raghunath Prabhakar",
@@ -16,11 +18,13 @@ export default function RootLayout({
       <body>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          // enableSystem
+          defaultTheme="system"
           disableTransitionOnChange
         >
-          {children}
+          <Background>
+            <Navbar />
+            {children}
+          </Background>
         </ThemeProvider>
       </body>
     </html>
