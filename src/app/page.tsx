@@ -1,33 +1,21 @@
-import TextRotator from "@/components/ui/text-rotator";
-import { TypewriterEffect } from "@/components/ui/typewriter-effect";
-import HomeSubtitle from "@/features/home-subtitle";
+import HomeSubtitle from "@/features/home-title/home-subtitle";
 import SocialMediaButtons from "@/features/social-media-buttons";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+const HomeTitle = dynamic(() => import("@/features/home-title"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Home - Raghunath Prabhakar",
   description: "Home Page - Raghunath Prabhakar's Portfolio Website",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
-    <div className="h-[40rem] w-full flex flex-col items-center justify-center overflow-hidden gap-10">
-      <div className="flex flex-col gap-3 max-w-[70%] mx-auto">
-        <TypewriterEffect
-          words={[
-            {
-              text: "Raghunath",
-            },
-            {
-              text: "Prabhakar",
-            },
-          ]}
-          className="flex items-end text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-bold text-left"
-          cursorClassName="bg-muted hidden md:block "
-        />
-        <HomeSubtitle />
-      </div>
-      <SocialMediaButtons className="max-w-[70%]" />
+    <div className="h-[40rem] w-full flex flex-col items-center justify-center overflow-hidden gap-10 px-[3rem]">
+      <HomeTitle />
+      <SocialMediaButtons />
     </div>
   );
 }

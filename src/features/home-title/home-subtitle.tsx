@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import TextRotator from "@/components/ui/text-rotator";
 import { cn } from "@/utils/cn";
 
@@ -17,10 +17,10 @@ const HomeSubtitle: React.FC<IHomeSubtitle> = ({ className }) => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 2,
+        duration: 1.8,
         ease: "easeInOut",
         when: "beforeChildren",
-        staggerChildren: 0.5,
+        staggerChildren: 0.4,
       },
     },
   };
@@ -33,7 +33,7 @@ const HomeSubtitle: React.FC<IHomeSubtitle> = ({ className }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowRotator(true);
-    }, 3000);
+    }, 3500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -44,10 +44,10 @@ const HomeSubtitle: React.FC<IHomeSubtitle> = ({ className }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      layout
     >
       {showRotator ? (
         <TextRotator
+          duration={0.4}
           words={[
             "Frontend",
             "Backend",
