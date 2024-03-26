@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { AnimatePresence, motion, useCycle } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
 
 interface ITextRotator {
   words: string[];

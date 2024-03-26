@@ -1,29 +1,30 @@
 "use client";
-import TextRotator from "@/components/ui/text-rotator";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      delay: 1,
-      duration: 0.5,
-      when: "beforeChildren",
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const childVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.5 },
-  },
-};
+import TextRotator from "@/components/ui/text-rotator";
 
 const HomeSubtitle = () => {
+  const [showRotator, setShowRotator] = useState(false);
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+        when: "beforeChildren",
+        staggerChildren: 0.5,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   return (
     <motion.div
       className="flex gap-3 items-center text-3xl"
@@ -31,23 +32,29 @@ const HomeSubtitle = () => {
       initial="hidden"
       animate="visible"
       layout
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      onAnimationComplete={() => setShowRotator(true)}
     >
-      <TextRotator
-        words={[
-          "Full-Stack",
-          "Frontend",
-          "Backend",
-          "DevOps",
-          "Javascript",
-          "Python",
-          "Java",
-          "React",
-          "Node.js",
-          "Next.js",
-          "Nest.js",
-        ]}
-      />
+      {showRotator ? (
+        <TextRotator
+          words={[
+            "Frontend",
+            "Backend",
+            "DevOps",
+            "Javascript",
+            "Python",
+            "Java",
+            "React",
+            "Node.js",
+            "Next.js",
+            "Nest.js",
+            "Full-Stack",
+          ]}
+        />
+      ) : (
+        <motion.p className="text-3xl" variants={childVariants}>
+          Full-Stack
+        </motion.p>
+      )}
       <motion.p variants={childVariants}>Developer</motion.p>
     </motion.div>
   );
