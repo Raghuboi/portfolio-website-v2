@@ -1,9 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import TextRotator from "@/components/ui/text-rotator";
+import { cn } from "@/utils/cn";
 
-const HomeSubtitle = () => {
+interface IHomeSubtitle {
+  className?: string;
+}
+
+const HomeSubtitle: React.FC<IHomeSubtitle> = ({ className }) => {
   const [showRotator, setShowRotator] = useState(false);
 
   const containerVariants = {
@@ -12,7 +17,7 @@ const HomeSubtitle = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1,
+        duration: 2,
         ease: "easeInOut",
         when: "beforeChildren",
         staggerChildren: 0.5,
@@ -25,14 +30,21 @@ const HomeSubtitle = () => {
     visible: { opacity: 1 },
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowRotator(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <motion.div
-      className="flex gap-3 items-center text-3xl"
+      className={cn("flex gap-3 items-center text-3xl", className)}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
       layout
-      onAnimationComplete={() => setShowRotator(true)}
     >
       {showRotator ? (
         <TextRotator

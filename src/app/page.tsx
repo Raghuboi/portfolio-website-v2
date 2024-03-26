@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="h-[40rem] w-full flex flex-col items-center justify-center overflow-hidden gap-10">
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 max-w-[70%] mx-auto">
         <TypewriterEffect
           words={[
             {
@@ -22,12 +22,12 @@ export default function Page() {
               text: "Prabhakar",
             },
           ]}
-          className="flex items-end text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-bold text-center"
-          cursorClassName="bg-muted h-full"
+          className="flex items-end text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-bold text-left"
+          cursorClassName="bg-muted hidden md:block "
         />
         <HomeSubtitle />
       </div>
-      <SocialMediaButtons />
+      <SocialMediaButtons className="max-w-[70%]" />
     </div>
   );
 }

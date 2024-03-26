@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/utils/cn";
 import {
   GitHubLogoIcon,
   LinkedInLogoIcon,
@@ -7,9 +8,13 @@ import {
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-interface ISocialMediaButtons {}
+interface ISocialMediaButtons {
+  className?: string;
+}
 
-export const SocialMediaButtons: React.FC<ISocialMediaButtons> = () => {
+export const SocialMediaButtons: React.FC<ISocialMediaButtons> = ({
+  className,
+}) => {
   return (
     <motion.div
       initial={{ y: "+100dvh", opacity: 0 }}
@@ -20,7 +25,10 @@ export const SocialMediaButtons: React.FC<ISocialMediaButtons> = () => {
         damping: 20,
         duration: 0.3,
       }}
-      className="flex flex-wrap items-center justify-center gap-4"
+      className={cn(
+        "flex flex-wrap items-center justify-center gap-4",
+        className
+      )}
     >
       <Link href="https://github.com/Raghuboi" target="_blank" rel="noreferrer">
         <button className="p-[3px] relative">
