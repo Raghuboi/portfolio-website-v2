@@ -31,7 +31,7 @@ export const SocialMediaButtons: React.FC<ISocialMediaButtons> = ({
       )}
     >
       <Link href="https://github.com/Raghuboi" target="_blank" rel="noreferrer">
-        <button className="p-[3px] relative">
+        <button className="w-[150px] sm:w-auto p-[3px] relative">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
           <div className="flex items-center gap-2 px-8 py-2 bg-secondary rounded-[6px] relative group transition duration-200 text-secondary-foreground hover:bg-transparent">
             Github
@@ -45,7 +45,7 @@ export const SocialMediaButtons: React.FC<ISocialMediaButtons> = ({
         target="_blank"
         rel="noreferrer"
       >
-        <button className="p-[3px] relative">
+        <button className="w-[150px] p-[3px] relative">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-[#0077B5] rounded-lg" />
           <div className="flex items-center gap-2 px-8 py-2 bg-secondary rounded-[6px] relative group transition duration-200 text-secondary-foreground hover:bg-transparent">
             LinkedIn
@@ -60,7 +60,7 @@ export const SocialMediaButtons: React.FC<ISocialMediaButtons> = ({
         download="Raghunath_Prabhakar_resume"
         href={process.env.NEXT_PUBLIC_RESUME_URL}
       >
-        <button className="p-[3px] relative">
+        <button className="w-[150px] p-[3px] relative">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
           <div className="flex items-center gap-2 px-8 py-2 bg-secondary rounded-[6px] relative group transition duration-200 text-secondary-foreground hover:bg-transparent">
             Resume
