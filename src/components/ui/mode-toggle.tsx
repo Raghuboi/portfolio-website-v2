@@ -24,10 +24,10 @@ export function ModeToggle() {
         variants={motionVariants}
         transition={{ duration: 0.5 }}
       >
-        {theme === "dark" ? (
-          <SunIcon className="h-[1.2rem] w-[1.2rem]" />
-        ) : (
+        {theme === "light" ? (
           <MoonIcon className="h-[1.2rem] w-[1.2rem] scale-x-[-1]" />
+        ) : (
+          <SunIcon className="h-[1.2rem] w-[1.2rem]" />
         )}
       </motion.div>
       <span className="sr-only">Toggle theme</span>
