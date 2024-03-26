@@ -1,4 +1,6 @@
+import TextRotator from "@/components/ui/text-rotator";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import HomeSubtitle from "@/features/home-subtitle";
 import SocialMediaButtons from "@/features/social-media-buttons";
 import { Metadata } from "next";
 
@@ -22,6 +24,7 @@ export default function Page() {
         className="flex items-end text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-bold text-center"
         cursorClassName="bg-muted h-full"
       />
+      <HomeSubtitle />
       <SocialMediaButtons />
     </div>
   );
