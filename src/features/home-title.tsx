@@ -2,8 +2,8 @@
 import React from "react";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { useMediaQuery } from "usehooks-ts";
-import HomeSubtitle from "./home-subtitle";
 import { motion } from "framer-motion";
+import TextRotator from "@/components/ui/text-rotator";
 
 interface IHomeTitle {}
 
@@ -32,7 +32,22 @@ const HomeTitle: React.FC<IHomeTitle> = () => {
         className="flex items-end text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-bold text-left"
         cursorClassName="bg-muted hidden md:block "
       />
-      <HomeSubtitle />
+      <TextRotator
+        words={[
+          "Full-Stack",
+          "Frontend",
+          "Backend",
+          "DevOps",
+          "Javascript",
+          "Python",
+          "Java",
+          "React",
+          "Node.js",
+          "Next.js",
+          "Nest.js",
+        ]}
+        suffix="Developer"
+      />
     </motion.div>
   );
 };

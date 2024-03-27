@@ -1,4 +1,3 @@
-import HomeSubtitle from "@/features/home-title/home-subtitle";
 import SocialMediaButtons from "@/features/social-media-buttons";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
