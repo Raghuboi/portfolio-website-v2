@@ -42,7 +42,6 @@ export const HomeButtons: React.FC<IHomeButtons> = ({ className }) => {
           <DownloadIcon />
         </HoverBorderGradient>
       </a>
-
       <Link href="/projects">
         <HoverBorderGradient
           containerClassName="rounded-full"
