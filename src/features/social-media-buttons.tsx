@@ -61,7 +61,7 @@ export const SocialMediaButtons: React.FC<ISocialMediaButtons> = ({
         href={process.env.NEXT_PUBLIC_RESUME_URL}
       >
         <button className="w-[150px] p-[3px] relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-teal-500 rounded-lg" />
           <div className="flex items-center gap-2 px-8 py-2 bg-secondary rounded-[6px] relative group transition duration-200 text-secondary-foreground hover:bg-transparent">
             Resume
             <DownloadIcon className="text-secondary-foreground" />

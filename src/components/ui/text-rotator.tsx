@@ -75,9 +75,11 @@ const TextRotator = forwardRef<HTMLDivElement, ITextRotator>(
         animate="visible"
         className={cn("flex gap-2 items-center text-2xl", className)}
       >
-        <motion.h1 variants={itemVariants} layout={Boolean(setShowRotator)}>
-          {prefix}
-        </motion.h1>
+        {prefix ? (
+          <motion.h1 variants={itemVariants} layout={Boolean(setShowRotator)}>
+            {prefix}
+          </motion.h1>
+        ) : null}
         {showRotator ? (
           <motion.h1
             key={currWord}
