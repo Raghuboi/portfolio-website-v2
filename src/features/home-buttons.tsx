@@ -1,10 +1,7 @@
 "use client";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { cn } from "@/utils/cn";
-import {
-  GitHubLogoIcon,
-  LinkedInLogoIcon,
-  DownloadIcon,
-} from "@radix-ui/react-icons";
+import { ArrowRightIcon, DownloadIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -24,7 +21,7 @@ export const HomeButtons: React.FC<IHomeButtons> = ({ className }) => {
         duration: 0.3,
       }}
       className={cn(
-        "flex flex-wrap items-center justify-center gap-4",
+        "w-full flex flex-wrap items-center justify-start gap-3",
         className
       )}
     >
@@ -34,14 +31,29 @@ export const HomeButtons: React.FC<IHomeButtons> = ({ className }) => {
         download="Raghunath_Prabhakar_resume"
         href={process.env.NEXT_PUBLIC_RESUME_URL}
       >
-        <button className="w-[150px] p-[3px] relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-teal-500 rounded-lg" />
-          <div className="flex items-center gap-2 px-8 py-2 bg-secondary rounded-[6px] relative group transition duration-200 text-secondary-foreground hover:bg-transparent">
-            Resume
-            <DownloadIcon className="text-secondary-foreground" />
-          </div>
-        </button>
+        <HoverBorderGradient
+          containerClassName="rounded-full"
+          duration={0.5}
+          as="button"
+          clockwise={false}
+          className="bg-background white text-black dark:text-white flex items-center space-x-2"
+        >
+          <span>Resume</span>
+          <DownloadIcon />
+        </HoverBorderGradient>
       </a>
+
+      <Link href="/projects">
+        <HoverBorderGradient
+          containerClassName="rounded-full"
+          duration={0.5}
+          as="button"
+          className="bg-background white text-black dark:text-white flex items-center space-x-2"
+        >
+          <span>Projects</span>
+          <ArrowRightIcon />
+        </HoverBorderGradient>
+      </Link>
     </motion.div>
   );
 };
