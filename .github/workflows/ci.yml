@@ -68,6 +68,7 @@ jobs:
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
         
       - name: Deploy
+        if: ${{ github.event_name != 'pull_request' }}
         uses: fjogeleit/http-request-action@v1
         with:
           url: ${{ secrets.DEPLOYMENT_URL }}
