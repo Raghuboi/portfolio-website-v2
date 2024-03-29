@@ -66,3 +66,10 @@ jobs:
           TAGS: ${{ steps.meta.outputs.tags }}
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
+        
+      - name: Deploy
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ secrets.DEPLOYMENT_URL }}
+          method: 'POST'
+          bearerToken: ${{ secrets.DEPLOYMENT_TOKEN }}
