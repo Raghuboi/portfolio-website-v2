@@ -26,7 +26,6 @@ jobs:
       - name: Create .env file
         uses: SpicyPizza/create-envfile@v2.0
         with:
-          envkey_NODE_ENV: "production"
           envkey_NEXT_PUBLIC_RESUME_URL: ${{ secrets.RESUME_URL }}
           directory: .
           file_name: .env.production
