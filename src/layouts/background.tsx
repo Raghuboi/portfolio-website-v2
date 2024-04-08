@@ -1,11 +1,8 @@
 "use client";
-import { ReactNode } from "react";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { useTheme } from "next-themes";
 
-interface IBackground {
-  children: ReactNode;
-}
+interface IBackground extends React.PropsWithChildren {}
 
 const Background: React.FC<IBackground> = ({ children }) => {
   const { theme } = useTheme();

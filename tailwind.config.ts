@@ -23,6 +23,15 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        monospaced: [
+          "Consolas",
+          "Courier New",
+          "Lucida Console",
+          "Lucida Sans Typewriter",
+          "monospace",
+        ],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
