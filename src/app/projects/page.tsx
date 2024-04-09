@@ -13,7 +13,7 @@ const PROJECTS = [
     tab: (
       <>
         <h1 className="text-2xl font-semibold">Student Net</h1>
-        <div className="max-w-full flex flex-wrap gap-2 py-2">
+        <div className="max-w-full flex flex-wrap gap-2 py-2 text-white">
           <span className="bg-black px-2 flex items-center justify-center text-center rounded-xl">
             NextJS
           </span>
@@ -23,7 +23,7 @@ const PROJECTS = [
           <span className="bg-blue-600 px-2 flex items-center justify-center text-center rounded-xl">
             Material-ui
           </span>
-          <span className="bg-white text-black px-2 flex items-center justify-center text-center rounded-xl">
+          <span className="bg-gray-500 px-2 flex items-center justify-center text-center rounded-xl">
             Postgres
           </span>
         </div>
@@ -41,7 +41,7 @@ const PROJECTS = [
     tab: (
       <>
         <h1 className="text-2xl font-semibold">Enroll</h1>
-        <div className="max-w-full flex flex-wrap gap-2 py-2">
+        <div className="max-w-full flex flex-wrap gap-2 py-2 text-white">
           <span className="bg-black px-2 flex items-center justify-center text-center rounded-xl">
             NextJS
           </span>
@@ -51,7 +51,7 @@ const PROJECTS = [
           <span className="bg-blue-600 px-2 flex items-center justify-center text-center rounded-xl">
             Material-ui
           </span>
-          <span className="bg-white text-black px-2 flex items-center justify-center text-center rounded-xl">
+          <span className="bg-gray-500 px-2 flex items-center justify-center text-center rounded-xl">
             Postgres
           </span>
         </div>
@@ -69,7 +69,7 @@ const PROJECTS = [
     tab: (
       <>
         <h1 className="text-2xl font-semibold">Rent Nation</h1>
-        <div className="max-w-full flex flex-wrap gap-2 py-2">
+        <div className="max-w-full flex flex-wrap gap-2 py-2 text-white">
           <span className="bg-blue-700 px-2 flex items-center justify-center text-center rounded-xl">
             React
           </span>
@@ -82,7 +82,7 @@ const PROJECTS = [
           <span className="bg-blue-500 px-2 flex items-center justify-center text-center rounded-xl">
             Tailwind
           </span>
-          <span className="bg-white text-black px-2 flex items-center justify-center text-center rounded-xl">
+          <span className="bg-gray-500 px-2 flex items-center justify-center text-center rounded-xl">
             Postgres
           </span>
         </div>
@@ -100,7 +100,8 @@ const PROJECTS = [
     tab: (
       <>
         <h1 className="text-2xl font-semibold">Portfolio Website</h1>
-        <div className="max-w-full flex flex-wrap gap-2 py-2">
+        <p>My personal portfolio built using NextJS v14.</p>
+        <div className="max-w-full flex flex-wrap gap-2 py-2 text-white">
           <span className="bg-black px-2 flex items-center justify-center text-center rounded-xl">
             NextJS
           </span>
@@ -120,12 +121,17 @@ const PROJECTS = [
             Framer Motion
           </span>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
-          ipsum eveniet neque. Eveniet, excepturi, est necessitatibus corrupti
-          dolor, pariatur natus animi at porro illum accusantium voluptatum
-          reprehenderit sapiente distinctio aliquid?
-        </p>
+        <ul className="list-disc gap-2">
+          <li>
+            Self hosted on AWS EC2 using Docker with automated CI/CD using
+            Github Actions
+          </li>
+          <li>Server rendered pages with in-memory caching</li>
+          <li>Styled using Tailwind and Framer Motion</li>
+          <li>
+            Optimized build pipeline that outputs multi-stage docker images
+          </li>
+        </ul>
       </>
     ),
   },
@@ -134,7 +140,7 @@ const PROJECTS = [
     tab: (
       <>
         <h1 className="text-2xl font-semibold">Multiplayer Poker Game</h1>
-        <div className="max-w-full flex flex-wrap gap-2 py-2">
+        <div className="max-w-full flex flex-wrap gap-2 py-2 text-white">
           <span className="bg-blue-700 px-2 flex items-center justify-center text-center rounded-xl">
             React
           </span>
@@ -159,7 +165,7 @@ const PROJECTS = [
     tab: (
       <>
         <h1 className="text-2xl font-semibold">Snake AI</h1>
-        <div className="max-w-full flex flex-wrap gap-2 py-2">
+        <div className="max-w-full flex flex-wrap gap-2 py-2 text-white">
           <span className="bg-blue-700 px-2 flex items-center justify-center text-center rounded-xl">
             React
           </span>
@@ -199,7 +205,7 @@ const Page: React.FC<Props> = () => {
           <HoverBorderGradient
             as="div"
             containerClassName="w-full rounded-xl"
-            className="w-full rounded-xl bg-background"
+            className="w-full rounded-xl bg-background text-foreground"
           >
             <Link
               href="/"
@@ -221,7 +227,7 @@ const Page: React.FC<Props> = () => {
               className="px-4 pb-4 !font-monospaced max-w-full grid grid-cols-2 sm:grid-cols-3 gap-4"
             >
               <h1
-                className="mb-4 col-span-2 hover:translate-x-1 transition duration-400 sm:col-start-1 sm:col-end-4 sm:col-span-3 text-2xl font-semibold text-white self-end justify-self-center"
+                className="mb-4 col-span-2 hover:translate-x-1 transition duration-400 sm:col-start-1 sm:col-end-4 sm:col-span-3 text-2xl font-semibold text-foreground self-end justify-self-center"
                 style={{
                   textShadow:
                     "2px 2px 0 var(--purple-500), 4px 4px 0 var(--indigo-500)",
@@ -244,7 +250,7 @@ const Page: React.FC<Props> = () => {
                   <button
                     onClick={() => setSelected(index)}
                     className={cn(
-                      "group w-full h-full p-2 bg-inherit text-white rounded-lg transform hover:-translate-y-1 transition duration-400",
+                      "group w-full h-full p-2 bg-inherit rounded-lg transform hover:-translate-y-1 transition duration-400",
                       selected === index ? "bg-muted" : null
                     )}
                   >
@@ -269,7 +275,7 @@ const Page: React.FC<Props> = () => {
           <HoverBorderGradient
             as="div"
             containerClassName="w-full rounded-xl"
-            className="w-full rounded-xl bg-background"
+            className="w-full rounded-xl bg-background text-foreground"
           >
             <motion.div
               initial={{ opacity: 0, y: -50 }}
