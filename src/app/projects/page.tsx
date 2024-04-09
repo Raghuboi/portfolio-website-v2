@@ -133,7 +133,7 @@ const PROJECTS = [
     name: "Multiplayer Poker",
     tab: (
       <>
-        <h1 className="text-2xl font-semibold">Portfolio Website</h1>
+        <h1 className="text-2xl font-semibold">Multiplayer Poker Game</h1>
         <div className="max-w-full flex flex-wrap gap-2 py-2">
           <span className="bg-blue-700 px-2 flex items-center justify-center text-center rounded-xl">
             React
@@ -188,98 +188,101 @@ const Page: React.FC<Props> = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ type: "spring", stiffness: 350, damping: 25 }}
-      className="relative max-w-[100dvw] grid grid-rows-2 gap-4 justify-center items-center"
-    >
-      <motion.div layout>
-        <HoverBorderGradient
-          as="div"
-          containerClassName="w-full rounded-xl"
-          className="w-full rounded-xl bg-background"
-        >
-          <Link
-            href="/"
-            className="absolute hover:underline top-0 left-0 m-4 flex items-center justify-center gap-2 font-monospaced"
+    <div className="min-h-[75dvh] flex items-center justify-center">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 350, damping: 25 }}
+        className="max-w-[40rem] mx-auto my-auto relative grid grid-auto-rows gap-4 justify-items-stretch"
+      >
+        <motion.div layout>
+          <HoverBorderGradient
+            as="div"
+            containerClassName="w-full rounded-xl"
+            className="w-full rounded-xl bg-background"
           >
-            <ArrowLeftIcon /> Back
-          </Link>
-          <Button
-            variant="ghost"
-            className="absolute top-0 right-0 m-2 group"
-            onClick={handleShuffle}
-          >
-            <ShuffleIcon className="group-hover:rotate- transition-transform duration-400 transform" />
-          </Button>
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 350, damping: 25 }}
-            className="px-4 pb-4 !font-monospaced max-w-full grid grid-cols-2 sm:grid-cols-3 gap-4"
-          >
-            <h1
-              className="mb-4 col-span-2 hover:translate-x-1 transition duration-400 sm:col-start-1 sm:col-end-4 sm:col-span-3 text-2xl font-semibold text-white self-end justify-self-center"
-              style={{
-                textShadow:
-                  "2px 2px 0 var(--purple-500), 4px 4px 0 var(--indigo-500)",
-              }}
+            <Link
+              href="/"
+              className="absolute hover:underline top-0 left-0 m-4 flex items-center justify-center gap-2 font-monospaced"
             >
-              My Projects
-            </h1>
-            {projects.map((p, index) => (
-              <motion.div
-                className="cursor-pointer"
-                layout
-                transition={{
-                  type: "spring",
-                  stiffness: 350,
-                  damping: 25,
-                  delay: index * 0.03,
+              <ArrowLeftIcon /> Back
+            </Link>
+            <Button
+              variant="ghost"
+              className="absolute top-0 right-0 m-2 group"
+              onClick={handleShuffle}
+            >
+              <ShuffleIcon className="group-hover:rotate- transition-transform duration-400 transform" />
+            </Button>
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ type: "spring", stiffness: 350, damping: 25 }}
+              className="px-4 pb-4 !font-monospaced max-w-full grid grid-cols-2 sm:grid-cols-3 gap-4"
+            >
+              <h1
+                className="mb-4 col-span-2 hover:translate-x-1 transition duration-400 sm:col-start-1 sm:col-end-4 sm:col-span-3 text-2xl font-semibold text-white self-end justify-self-center"
+                style={{
+                  textShadow:
+                    "2px 2px 0 var(--purple-500), 4px 4px 0 var(--indigo-500)",
                 }}
-                key={p.name}
               >
-                <button
-                  onClick={() => setSelected(index)}
-                  className={cn(
-                    "group w-full h-full p-2 bg-inherit text-white rounded-lg transform hover:-translate-y-1 transition duration-400",
-                    selected === index ? "bg-muted" : null
-                  )}
+                My Projects
+              </h1>
+              {projects.map((p, index) => (
+                <motion.div
+                  className="cursor-pointer"
+                  layout
+                  transition={{
+                    type: "spring",
+                    stiffness: 350,
+                    damping: 25,
+                    delay: index * 0.03,
+                  }}
+                  key={p.name}
                 >
-                  {p.name === "Portfolio Website" ? (
-                    <span className="relative">
-                      {p.name}
-                      <span className="font-[comic_sans] text-sm text-pink-500 transition duration-400 absolute bottom-10 min-[415px]:bottom-4 -right-8 min-[415px]:-right-6 group-hover:-rotate-[18deg]">
-                        new!
+                  <button
+                    onClick={() => setSelected(index)}
+                    className={cn(
+                      "group w-full h-full p-2 bg-inherit text-white rounded-lg transform hover:-translate-y-1 transition duration-400",
+                      selected === index ? "bg-muted" : null
+                    )}
+                  >
+                    {p.name === "Portfolio Website" ? (
+                      <span className="relative">
+                        {p.name}
+                        <span className="font-[comic_sans] text-sm text-pink-500 transition duration-400 absolute bottom-10 min-[415px]:bottom-4 -right-8 min-[415px]:-right-6 group-hover:-rotate-[18deg]">
+                          new!
+                        </span>
                       </span>
-                    </span>
-                  ) : (
-                    p.name
-                  )}
-                </button>
-              </motion.div>
-            ))}
-          </motion.div>
-        </HoverBorderGradient>
-      </motion.div>
-      <motion.div layout>
-        <HoverBorderGradient
-          as="div"
-          containerClassName="w-full rounded-xl"
-          className="w-full rounded-xl bg-background"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 350, damping: 25 }}
-            className="px-4 pb-4 !font-monospaced max-w-full flex flex-col gap-2"
+                    ) : (
+                      p.name
+                    )}
+                  </button>
+                </motion.div>
+              ))}
+            </motion.div>
+          </HoverBorderGradient>
+        </motion.div>
+
+        <motion.div layout>
+          <HoverBorderGradient
+            as="div"
+            containerClassName="w-full rounded-xl"
+            className="w-full rounded-xl bg-background"
           >
-            {projects[selected].tab}
-          </motion.div>
-        </HoverBorderGradient>
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ type: "spring", stiffness: 350, damping: 25 }}
+              className="px-4 pb-4 !font-monospaced flex flex-col gap-2"
+            >
+              {projects[selected].tab}
+            </motion.div>
+          </HoverBorderGradient>
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 
