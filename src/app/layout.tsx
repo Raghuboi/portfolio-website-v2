@@ -5,7 +5,7 @@ import Background from "@/layouts/background";
 
 export const metadata = {
   title: "Raghunath Prabhakar",
-  description: "Raghunath Prabhakar - Portfolio Website",
+  description: "Raghunath Prabhakar's Portfolio Website",
 };
 
 export default function RootLayout({
