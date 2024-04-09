@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <div className="h-[40rem] w-full flex justify-center items-center overflow-hidden px-[3rem]">
+    <div className="min-h-[40rem] max-w-full flex justify-center items-center px-[3rem]">
       <div className="w-[max-content] flex flex-col items-center justify-center gap-8">
         <HomeTitle />
         <HomeButtons />
