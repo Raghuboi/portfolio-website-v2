@@ -68,6 +68,7 @@ const ProjectTabs: React.FC<IProjectTabs> = ({ children }) => {
     setProjects(shuffledProjects);
 
     const newProject = shuffledProjects[selectedIndex];
+    setSelected(newProject.slug);
     router.push(`/projects/${newProject.slug}`);
   };
 
