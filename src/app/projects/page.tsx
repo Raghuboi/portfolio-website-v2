@@ -2,7 +2,13 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ShuffleIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
+import {
+  ShuffleIcon,
+  ArrowLeftIcon,
+  GitHubLogoIcon,
+  OpenInNewWindowIcon,
+  FileTextIcon,
+} from "@radix-ui/react-icons";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import Link from "next/link";
 import { cn } from "@/utils/cn";
@@ -41,6 +47,25 @@ const PROJECTS = [
     tab: (
       <>
         <h1 className="text-2xl font-semibold">Enroll</h1>
+        <p>
+          A Registration and Scheduling web-app for the Manitoba Conservatory of
+          Music and Arts.
+        </p>
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://docs.google.com/document/d/13TwDGCWG0LtZ2vfxigWodCNwXiP2EbsBkeqjXb7ZerU/edit?usp=sharing"
+          className="flex flex-wrap gap-2"
+        >
+          <span className="flex items-center gap-2">
+            <FileTextIcon />
+            Docs:
+          </span>
+          <span className="flex items-center gap-1 font-medium text-purple-500 hover:underline">
+            Project Completion Report
+            <OpenInNewWindowIcon />
+          </span>
+        </Link>
         <div className="max-w-full flex flex-wrap gap-2 py-2 text-white">
           <span className="bg-black px-2 flex items-center justify-center text-center rounded-xl">
             NextJS
@@ -55,12 +80,27 @@ const PROJECTS = [
             Postgres
           </span>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
-          ipsum eveniet neque. Eveniet, excepturi, est necessitatibus corrupti
-          dolor, pariatur natus animi at porro illum accusantium voluptatum
-          reprehenderit sapiente distinctio aliquid?
-        </p>
+        <ul className="list-disc gap-2">
+          <li>
+            Part of the 8-month-long University of Winnipeg capstone project
+          </li>
+          <li>
+            Lead developer in a team of 4 that shipped an internal tool for
+            student/class management
+          </li>
+          <li>
+            Led weekly standups and managed the team; observed programming
+            standards and co-authored documentation
+          </li>
+          <li>
+            Used modular monolith architecture to develop loosely coupled APIs
+          </li>
+          <li>
+            Developed studio scheduling APIs for managing individual and group
+            classes
+          </li>
+          <li>Developed payment management module for student registrations</li>
+        </ul>
       </>
     ),
   },
@@ -101,6 +141,21 @@ const PROJECTS = [
       <>
         <h1 className="text-2xl font-semibold">Portfolio Website</h1>
         <p>My personal portfolio built using NextJS v14.</p>
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/Raghuboi/portfolio-website-v2"
+          className="flex flex-wrap gap-2"
+        >
+          <span className="flex items-center gap-2">
+            <GitHubLogoIcon />
+            Repo:
+          </span>
+          <span className="flex items-center gap-1 font-medium text-purple-500 hover:underline">
+            Raghuboi/portfolio-website-v2
+            <OpenInNewWindowIcon />
+          </span>
+        </Link>
         <div className="max-w-full flex flex-wrap gap-2 py-2 text-white">
           <span className="bg-black px-2 flex items-center justify-center text-center rounded-xl">
             NextJS
@@ -257,7 +312,7 @@ const Page: React.FC<Props> = () => {
                     {p.name === "Portfolio Website" ? (
                       <span className="relative">
                         {p.name}
-                        <span className="font-[comic_sans] text-sm text-pink-500 transition duration-400 absolute bottom-10 min-[415px]:bottom-4 -right-8 min-[415px]:-right-6 group-hover:-rotate-[18deg]">
+                        <span className="font-[comic_sans] text-sm text-purple-500 transition duration-400 absolute bottom-10 min-[415px]:bottom-4 -right-8 min-[415px]:-right-6 group-hover:-rotate-[18deg]">
                           new!
                         </span>
                       </span>
@@ -281,7 +336,7 @@ const Page: React.FC<Props> = () => {
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ type: "spring", stiffness: 350, damping: 25 }}
-              className="px-4 pb-4 !font-monospaced flex flex-col gap-2"
+              className="p-4 !font-monospaced flex flex-col gap-2"
             >
               {projects[selected].tab}
             </motion.div>
