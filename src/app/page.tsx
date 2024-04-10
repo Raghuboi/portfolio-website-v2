@@ -1,3 +1,4 @@
+import HomeAbout from "@/features/home-about";
 import HomeButtons from "@/features/home-buttons";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -12,9 +13,10 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <div className="min-h-[40rem] max-w-full flex justify-center items-center px-[3rem]">
-      <div className="w-[max-content] flex flex-col items-center justify-center gap-8">
+    <div className="min-h-[85dvh] max-w-full flex justify-center items-center px-[3rem]">
+      <div className="max-w-[40rem] flex flex-col items-center justify-center gap-8">
         <HomeTitle />
+        <HomeAbout />
         <HomeButtons />
       </div>
     </div>
