@@ -4,7 +4,7 @@ services:
     container_name: nginx
     image: nginx:latest
     environment:
-      - DOMAIN=dev.raghunathprabhakar.com
+      - DOMAIN=raghunathprabhakar.com
     ports:
       - 80:80
     volumes:
