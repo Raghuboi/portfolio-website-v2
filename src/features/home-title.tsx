@@ -25,7 +25,7 @@ const HomeTitle: React.FC<IHomeTitle> = () => {
     <motion.div
       layout
       transition={{ duration: 0.5 }}
-      className="mr-auto flex flex-col gap-3 transition-width duration-500 ease-in-out"
+      className="relative mr-auto my-1 flex flex-col gap-3 transition-width duration-500 ease-in-out"
     >
       <TypewriterEffect
         words={WORDS}
