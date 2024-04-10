@@ -1,54 +1,95 @@
+"use client";
 import { GitHubLogoIcon, OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  childVariants,
+  chipChildVariants,
+  chipContainerVariants,
+} from "@/features/project-tabs";
 
 interface Props {}
 
-const Page: React.FC<Props> = async () => {
+const Page: React.FC<Props> = () => {
   return (
     <>
-      <h1 className="text-2xl font-semibold">Rent Nation</h1>
-      <p>My personal portfolio built using NextJS v14.</p>
+      <motion.h1 variants={childVariants} className="text-2xl font-semibold">
+        Rent Nation
+      </motion.h1>
+      <motion.p variants={childVariants}>
+        My personal portfolio built using NextJS v14.
+      </motion.p>
       <Link
         target="_blank"
         rel="noopener noreferrer"
         href="https://github.com/Raghuboi/portfolio-website-v2"
         className="flex flex-wrap gap-2"
       >
-        <span className="flex items-center gap-2">
+        <motion.span
+          variants={childVariants}
+          className="flex items-center gap-2"
+        >
           <GitHubLogoIcon />
           Repo:
-        </span>
-        <span className="flex items-center gap-1 font-medium text-purple-500 hover:underline">
+        </motion.span>
+        <motion.span
+          variants={childVariants}
+          className="flex items-center gap-1 font-medium text-purple-500 hover:underline"
+        >
           Raghuboi/portfolio-website-v2
           <OpenInNewWindowIcon />
-        </span>
+        </motion.span>
       </Link>
-      <div className="max-w-full flex flex-wrap gap-2 py-2 text-white">
-        <span className="bg-blue-700 px-2 flex items-center justify-center text-center rounded-xl">
+      <motion.div
+        variants={chipContainerVariants}
+        className="max-w-full flex flex-wrap gap-2 py-2 text-white"
+      >
+        <motion.span
+          variants={chipChildVariants}
+          className="bg-blue-700 px-2 flex items-center justify-center text-center rounded-xl"
+        >
           React
-        </span>
-        <span className="bg-blue-600 px-2 flex items-center justify-center text-center rounded-xl">
+        </motion.span>
+        <motion.span
+          variants={chipChildVariants}
+          className="bg-blue-600 px-2 flex items-center justify-center text-center rounded-xl"
+        >
           Docker
-        </span>
-        <span className="bg-green-700 px-2 flex items-center justify-center text-center rounded-xl">
+        </motion.span>
+        <motion.span
+          variants={chipChildVariants}
+          className="bg-green-700 px-2 flex items-center justify-center text-center rounded-xl"
+        >
           Python/Django
-        </span>
-        <span className="bg-blue-500 px-2 flex items-center justify-center text-center rounded-xl">
+        </motion.span>
+        <motion.span
+          variants={chipChildVariants}
+          className="bg-blue-500 px-2 flex items-center justify-center text-center rounded-xl"
+        >
           Tailwind
-        </span>
-        <span className="bg-gray-500 px-2 flex items-center justify-center text-center rounded-xl">
+        </motion.span>
+        <motion.span
+          variants={chipChildVariants}
+          className="bg-gray-500 px-2 flex items-center justify-center text-center rounded-xl"
+        >
           Postgres
-        </span>
-      </div>
-      <ul className="list-disc gap-2">
-        <li>
+        </motion.span>
+      </motion.div>
+      <motion.ul variants={chipContainerVariants} className="list-disc gap-2">
+        <motion.li variants={chipChildVariants}>
           Self hosted on AWS EC2 using Docker with automated CI/CD using Github
           Actions
-        </li>
-        <li>Server rendered pages with in-memory caching</li>
-        <li>Styled using Tailwind and Framer Motion</li>
-        <li>Optimized build pipeline that outputs multi-stage docker images</li>
-      </ul>
+        </motion.li>
+        <motion.li variants={chipChildVariants}>
+          Server rendered pages with in-memory caching
+        </motion.li>
+        <motion.li variants={chipChildVariants}>
+          Styled using Tailwind and Framer Motion
+        </motion.li>
+        <motion.li variants={chipChildVariants}>
+          Optimized build pipeline that outputs multi-stage docker images
+        </motion.li>
+      </motion.ul>
     </>
   );
 };

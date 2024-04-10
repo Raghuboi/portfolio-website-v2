@@ -1,12 +1,59 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { ShuffleIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import Link from "next/link";
 import { cn } from "@/utils/cn";
 import { usePathname, useRouter } from "next/navigation";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+    when: "beforeChildren",
+    ease: [0.43, 0.13, 0.23, 0.96],
+  },
+};
+
+export const childVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 500,
+      damping: 30,
+      opacity: { duration: 0.2 },
+      scale: {
+        type: "spring",
+        stiffness: 500,
+        damping: 25,
+        delay: 0.1,
+      },
+    },
+  },
+};
+
+export const chipContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+export const chipChildVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const PROJECTS = [
   {
@@ -37,9 +84,11 @@ const PROJECTS = [
 
 type ProjectSlug = (typeof PROJECTS)[number]["slug"];
 
-interface IProjectTabs extends React.PropsWithChildren {}
+interface IProjectTabs extends React.PropsWithChildren {
+  className?: string;
+}
 
-const ProjectTabs: React.FC<IProjectTabs> = ({ children }) => {
+const ProjectTabs: React.FC<IProjectTabs> = ({ children, className }) => {
   const pathname = usePathname();
   const router = useRouter();
   const [projects, setProjects] = useState([...PROJECTS]);
@@ -77,7 +126,13 @@ const ProjectTabs: React.FC<IProjectTabs> = ({ children }) => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 350, damping: 25 }}
-      className="max-w-[40rem] mx-auto my-auto relative grid grid-auto-rows gap-4 justify-items-stretch"
+      className={cn(
+        "max-w-[40rem] mx-auto grid grid-auto-rows gap-4 justify-items-stretch",
+        !selected
+          ? "mt-[1em] sm:mt-[30dvh]"
+          : "mt-[1em] sm:mt-[3em] lg:mt-[5em]",
+        className
+      )}
     >
       <motion.div layout>
         <HoverBorderGradient
@@ -156,14 +211,12 @@ const ProjectTabs: React.FC<IProjectTabs> = ({ children }) => {
 
       {selected ? (
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
+          initial={{ opacity: 0, y: -100, height: 0 }}
+          animate={{ opacity: 1, y: 0, height: "auto" }}
           transition={{
             type: "spring",
             stiffness: 350,
             damping: 25,
-            duration: 0.4,
           }}
           layout
         >
@@ -172,12 +225,12 @@ const ProjectTabs: React.FC<IProjectTabs> = ({ children }) => {
             className="w-full rounded-xl bg-background text-foreground"
           >
             <motion.div
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", stiffness: 350, damping: 25 }}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
               className="p-4 flex flex-col gap-2 text-left cursor-auto"
             >
-              <AnimatePresence>{children}</AnimatePresence>
+              {children}
             </motion.div>
           </HoverBorderGradient>
         </motion.div>

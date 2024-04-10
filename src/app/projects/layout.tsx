@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-[75dvh] py-4 flex items-center justify-center !font-mono">
+    <div className="min-h-[75dvh] py-4 !font-mono">
       <ProjectTabs>{children}</ProjectTabs>
     </div>
   );

@@ -1,51 +1,80 @@
+"use client";
 import { GitHubLogoIcon, OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  childVariants,
+  chipChildVariants,
+  chipContainerVariants,
+} from "@/features/project-tabs";
 
 interface Props {}
 
-const Page: React.FC<Props> = async () => {
+const Page: React.FC<Props> = () => {
   return (
     <>
-      <h1 className="text-2xl font-semibold">Multiplayer Poker Game</h1>
-      <p>My personal portfolio built using NextJS v14.</p>
+      <motion.h1 variants={childVariants} className="text-2xl font-semibold">
+        Multiplayer Poker
+      </motion.h1>
+      <motion.p variants={childVariants}>
+        A Multiplayer Poker Game that uses WebSockets.
+      </motion.p>
       <Link
         target="_blank"
         rel="noopener noreferrer"
-        href="https://github.com/Raghuboi/portfolio-website-v2"
+        href="https://github.com/Raghuboi/multiplayer-poker-game"
         className="flex flex-wrap gap-2"
       >
-        <span className="flex items-center gap-2">
+        <motion.span
+          variants={childVariants}
+          className="flex items-center gap-2"
+        >
           <GitHubLogoIcon />
           Repo:
-        </span>
-        <span className="flex items-center gap-1 font-medium text-purple-500 hover:underline">
-          Raghuboi/portfolio-website-v2
+        </motion.span>
+        <motion.span
+          variants={childVariants}
+          className="flex items-center gap-1 font-medium text-purple-500 hover:underline"
+        >
+          Raghuboi/multiplayer-poker-game
           <OpenInNewWindowIcon />
-        </span>
+        </motion.span>
       </Link>
-      <div className="max-w-full flex flex-wrap gap-2 py-2 text-white">
-        <span className="bg-blue-700 px-2 flex items-center justify-center text-center rounded-xl">
+      <motion.div
+        variants={chipContainerVariants}
+        className="max-w-full flex flex-wrap gap-2 py-2 text-white"
+      >
+        <motion.span
+          variants={chipChildVariants}
+          className="bg-blue-700 px-2 flex items-center justify-center text-center rounded-xl"
+        >
           React
-        </span>
-        <span className="bg-green-700 px-2 flex items-center justify-center text-center rounded-xl">
+        </motion.span>
+        <motion.span
+          variants={chipChildVariants}
+          className="bg-green-700 px-2 flex items-center justify-center text-center rounded-xl"
+        >
           Express
-        </span>
-        <span className="bg-blue-400 px-2 flex items-center justify-center text-center rounded-xl">
-          Socket-io
-        </span>
-        <span className="bg-purple-500 px-2 flex items-center justify-center text-center rounded-xl">
+        </motion.span>
+        <motion.span
+          variants={chipChildVariants}
+          className="bg-blue-400 px-2 flex items-center justify-center text-center rounded-xl"
+        >
+          Socket.io
+        </motion.span>
+        <motion.span
+          variants={chipChildVariants}
+          className="bg-purple-500 px-2 flex items-center justify-center text-center rounded-xl"
+        >
           Chakra-ui
-        </span>
-      </div>
-      <ul className="list-disc gap-2">
-        <li>
-          Self hosted on AWS EC2 using Docker with automated CI/CD using Github
-          Actions
-        </li>
-        <li>Server rendered pages with in-memory caching</li>
-        <li>Styled using Tailwind and Framer Motion</li>
-        <li>Optimized build pipeline that outputs multi-stage docker images</li>
-      </ul>
+        </motion.span>
+      </motion.div>
+      <motion.ul variants={chipContainerVariants} className="list-disc gap-2">
+        <motion.li variants={chipChildVariants}>
+          Users can play with each other using Room Codes or choose to queue up
+          with automatic matchmaking
+        </motion.li>
+      </motion.ul>
     </>
   );
 };
