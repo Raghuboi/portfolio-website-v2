@@ -56,30 +56,30 @@ export const chipChildVariants = {
 };
 
 const PROJECTS = [
+  // {
+  //   name: "Student Net",
+  //   slug: "student-net",
+  // },
+  // {
+  //   name: "Rent Nation",
+  //   slug: "rent-nation",
+  // },
   {
-    name: "Student Net",
-    slug: "student-net",
+    name: "Portfolio Website",
+    slug: "portfolio-website",
   },
   {
     name: "Enroll",
     slug: "enroll",
   },
   {
-    name: "Rent Nation",
-    slug: "rent-nation",
-  },
-  {
-    name: "Portfolio Website",
-    slug: "portfolio-website",
-  },
-  {
     name: "Multiplayer Poker",
     slug: "multiplayer-poker",
   },
-  {
-    name: "Snake AI",
-    slug: "snake-ai",
-  },
+  // {
+  //   name: "Snake AI",
+  //   slug: "snake-ai",
+  // },
 ] as const;
 
 type ProjectSlug = (typeof PROJECTS)[number]["slug"];
@@ -144,7 +144,7 @@ const ProjectTabs: React.FC<IProjectTabs> = ({ children, className }) => {
             href="/"
             className="absolute hover:underline top-0 left-0 m-4 flex items-center justify-center gap-2"
           >
-            <ArrowLeftIcon /> Back
+            <ArrowLeftIcon /> Home
           </Link>
           <Button
             variant="ghost"
