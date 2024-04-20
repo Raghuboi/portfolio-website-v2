@@ -25,14 +25,15 @@ const HomeTitle: React.FC<IHomeTitle> = () => {
     <motion.div
       layout
       transition={{ duration: 0.5 }}
-      className="relative mr-auto my-1 flex flex-col gap-3 transition-width duration-500 ease-in-out"
+      className="relative mr-auto my-1 flex flex-col gap-2 transition-width duration-500 ease-in-out"
     >
       <TypewriterEffect
         words={WORDS}
-        className="flex items-end text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-bold text-left"
+        className="flex items-end !text-5xl font-bold text-left"
         cursorClassName="bg-muted hidden md:block "
       />
       <TextRotator
+        className="font-mono"
         words={[
           "Full-Stack",
           "Frontend",

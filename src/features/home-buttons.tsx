@@ -16,12 +16,13 @@ export const HomeButtons: React.FC<IHomeButtons> = ({ className }) => {
       animate={{ y: 0, opacity: 1 }}
       transition={{
         type: "spring",
-        stiffness: 100,
-        damping: 20,
+        stiffness: 300,
+        damping: 30,
         duration: 0.3,
+        delay: 1.2,
       }}
       className={cn(
-        "w-full flex flex-wrap items-center justify-start gap-3",
+        "w-full flex flex-wrap items-center justify-start gap-3 font-mono",
         className
       )}
     >

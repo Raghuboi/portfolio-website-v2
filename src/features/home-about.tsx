@@ -8,13 +8,13 @@ const HomeAbout: React.FC<IHomeAbout> = () => {
   return (
     <motion.div
       layout
-      initial={{ scaleX: 0, opacity: 0 }}
-      animate={{ scaleX: 1, opacity: 1 }}
+      initial={{ scaleX: 0, borderRadius: "50%", height: 0, opacity: 0 }}
+      animate={{ scaleX: 1, borderRadius: 0, height: "initial", opacity: 1 }}
       transition={{
         type: "spring",
         stiffness: 300,
-        damping: 40,
-        delay: 0.3,
+        damping: 20,
+        delay: 1,
       }}
       className="max-w-full"
     >
