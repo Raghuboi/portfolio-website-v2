@@ -17,7 +17,7 @@ export function ModeToggle() {
     theme === "dark" ? setTheme("light") : setTheme("dark");
 
   return (
-    <Button onClick={handleToggle} variant="outline" size="icon">
+    <Button type="button" onClick={handleToggle} variant="outline" size="icon">
       <motion.div
         initial={false}
         animate={theme === "dark" ? "dark" : "light"}

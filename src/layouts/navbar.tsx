@@ -29,7 +29,7 @@ const Navbar: React.FC<INavbar> = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <Button variant="ghost" className="p-3">
+            <Button type="button" variant="ghost" className="p-3">
               <GitHubLogoIcon />
             </Button>
           </Link>
@@ -39,7 +39,7 @@ const Navbar: React.FC<INavbar> = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <Button variant="ghost" className="p-3">
+            <Button type="button" variant="ghost" className="p-3">
               <LinkedInLogoIcon />
             </Button>
           </Link>

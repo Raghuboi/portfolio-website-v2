@@ -147,6 +147,7 @@ const ProjectTabs: React.FC<IProjectTabs> = ({ children, className }) => {
             <ArrowLeftIcon /> Home
           </Link>
           <Button
+            type="button"
             variant="ghost"
             className="absolute top-0 right-0 m-2 group"
             onClick={handleShuffle}
@@ -181,6 +182,7 @@ const ProjectTabs: React.FC<IProjectTabs> = ({ children, className }) => {
                 key={p.name}
               >
                 <button
+                  type="button"
                   onClick={() => handleTabChange(p.slug)}
                   className={cn(
                     "group w-full h-full p-2 bg-inherit rounded-lg transform hover:-translate-y-1 transition duration-400",
