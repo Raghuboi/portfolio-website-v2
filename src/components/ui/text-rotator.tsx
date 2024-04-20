@@ -26,7 +26,7 @@ const itemVariants = {
 };
 
 interface ITextRotator {
-  words: string[];
+  words: { word: string; className?: string }[];
   className?: string;
   duration?: number;
   pauseDelay?: number;
@@ -82,7 +82,7 @@ const TextRotator = forwardRef<HTMLDivElement, ITextRotator>(
         ) : null}
         {showRotator ? (
           <motion.h1
-            key={currWord}
+            key={currWord.word}
             initial={{ y: "100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "-100%", opacity: 0 }}
@@ -91,15 +91,16 @@ const TextRotator = forwardRef<HTMLDivElement, ITextRotator>(
               duration: duration,
               ease: [0.44, 0, 0.56, 1],
               mass: 1,
-              stiffness: 200,
+              stiffness: 300,
               type: "spring",
             }}
+            className={cn(currWord.className)}
           >
-            {currWord}
+            {currWord.word}
           </motion.h1>
         ) : (
           <motion.h1 variants={itemVariants}>
-            {words[words.length - 1]}
+            {words[words.length - 1].word}
           </motion.h1>
         )}
         <motion.h1 variants={itemVariants} layout={Boolean(setShowRotator)}>

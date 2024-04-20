@@ -5,6 +5,23 @@ import { useMediaQuery } from "usehooks-ts";
 import { motion } from "framer-motion";
 import TextRotator from "@/components/ui/text-rotator";
 
+const ROTATOR_WORDS = [
+  { word: "Full-Stack" },
+  { word: "Frontend" },
+  { word: "Backend" },
+  { word: "DevOps" },
+  { word: "Javascript", className: "text-[#f0db4f]" },
+  {
+    word: "Python",
+    className: "text-[#ffde57]",
+  },
+  { word: "Java", className: "text-[#f89820]" },
+  { word: "React", className: "text-[#61dbfb]" },
+  { word: "Node.js", className: "text-[#3c873a]" },
+  { word: "Next.js" },
+  { word: "Nest.js", className: "text-red-600" },
+];
+
 interface IHomeTitle {}
 
 const HomeTitle: React.FC<IHomeTitle> = () => {
@@ -34,19 +51,7 @@ const HomeTitle: React.FC<IHomeTitle> = () => {
       />
       <TextRotator
         className="font-mono"
-        words={[
-          "Full-Stack",
-          "Frontend",
-          "Backend",
-          "DevOps",
-          "Javascript",
-          "Python",
-          "Java",
-          "React",
-          "Node.js",
-          "Next.js",
-          "Nest.js",
-        ]}
+        words={ROTATOR_WORDS}
         suffix="Developer"
       />
     </motion.div>
