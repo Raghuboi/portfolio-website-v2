@@ -14,7 +14,7 @@ const HomeAbout: React.FC<IHomeAbout> = () => {
         type: "spring",
         stiffness: 300,
         damping: 20,
-        delay: 1,
+        delay: 1.2,
       }}
       className="max-w-full"
     >

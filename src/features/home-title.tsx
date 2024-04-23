@@ -47,12 +47,13 @@ const HomeTitle: React.FC<IHomeTitle> = () => {
       <TypewriterEffect
         words={WORDS}
         className="flex items-end !text-5xl font-bold text-left"
-        cursorClassName="bg-muted hidden md:block "
+        cursorClassName="hidden"
       />
       <TextRotator
         className="font-mono"
         words={ROTATOR_WORDS}
         suffix="Developer"
+        initialDelay={4.5}
       />
     </motion.div>
   );
