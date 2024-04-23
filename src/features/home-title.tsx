@@ -11,15 +11,12 @@ const ROTATOR_WORDS = [
   { word: "Backend" },
   { word: "DevOps" },
   { word: "Javascript", className: "text-[#f0db4f]" },
-  {
-    word: "Python",
-    className: "text-[#ffde57]",
-  },
-  { word: "Java", className: "text-[#f89820]" },
+  { word: "Python", className: "text-[#ffde57]" },
+  { word: "Node.js", className: "text-green-500" },
   { word: "React", className: "text-[#61dbfb]" },
-  { word: "Node.js", className: "text-[#3c873a]" },
   { word: "Next.js" },
   { word: "Nest.js", className: "text-red-600" },
+  { word: "Java", className: "text-[#f89820]" },
 ];
 
 interface IHomeTitle {}
